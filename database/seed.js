@@ -70,7 +70,7 @@ grabPhotos(1)
     });
 
     fs.writeFile(
-      'dummyData.js',
+      'database/dummyData.js',
       `let sampleData = ${JSON.stringify(mongoData.slice(0, 3))}`,
       (err) => {
         if (err) console.log('Error writing', err);
