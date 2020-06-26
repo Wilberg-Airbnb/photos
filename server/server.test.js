@@ -1,33 +1,27 @@
-const { MongoClient } = require('mongodb');
 const request = require('supertest');
-const dummyData = require('../database/dummyData');
 const app = require('./app');
 
-describe('Test retrieving data from thumbnail endpoint', () => {
-  let connection;
-  let db;
-
-  beforeAll(async () => {
-    connection = await MongoClient.connect(global.__MONGO_URI__, {
-      useNewUrlParser: true,
-    });
-    db = await connection.db(global.__MONGO_DB_NAME__);
+describe('Test the thumbnail API path path', () => {
+  test('It should response the an object with listingId and thumbNail', () => {
+    const expected = ['listingId', 'thumbNail'];
+    return request(app)
+      .get('/api/photos/thumbnail/0')
+      .then((response) => {
+        const keyValues = Object.keys(JSON.parse(response.text));
+        expect(typeof JSON.parse(response.text)).toBe('object');
+        expect(keyValues).toEqual(expect.arrayContaining(expected));
+      });
   });
+});
 
-  afterAll(async () => {
-    await connection.close();
-    await db.close();
-  });
-
-  it('Send an JSON object with a listingId and photos property at the thumbnail endpoint', async () => {
-    const photos = db.collection('photos');
-    const expected = ['thumbNail', 'listingId'];
-    await photos.deleteMany({});
-    await photos.insertMany(dummyData);
-    const thumbNailObject = await request(app).get('/api/photos/thumbnail/0');
-    expect(JSON.parse(thumbNailObject.text).listingId).toEqual(0);
-    expect(Object.keys(JSON.parse(thumbNailObject.text))).toEqual(
-      expect.arrayContaining(expected)
-    );
+describe('Test the photos API path', () => {
+  test('It should get the whole data object', () => {
+    const expected = ['listingId', 'thumbNail', 'photos'];
+    return request(app)
+      .get('/api/photos/0')
+      .then((response) => {
+        const keyValues = Object.keys(JSON.parse(response.text)[0]);
+        expect(keyValues).toEqual(expect.arrayContaining(expected));
+      });
   });
 });

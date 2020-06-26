@@ -19,4 +19,15 @@ app.get('/api/photos/thumbnail/:listingId', (req, res) => {
     });
 });
 
+app.get('/api/photos/:listingId', (req, res) => {
+  Photos.find({ listingId: req.params.listingId })
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log('Error finding', error);
+      res.sendStatus(404);
+    });
+});
+
 module.exports = app;
