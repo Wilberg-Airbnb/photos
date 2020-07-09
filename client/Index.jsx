@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import MainPhotoCard from './components/PhotoCards/MainPhotoCard.jsx';
 
 class Index extends React.Component {
   constructor(props) {
@@ -16,7 +17,12 @@ class Index extends React.Component {
   }
 
   render() {
-    return <h1>Hey</h1>;
+    return (
+      <h1>
+        <MainPhotoCard></MainPhotoCard>
+        Hey
+      </h1>
+    );
   }
 }
 
