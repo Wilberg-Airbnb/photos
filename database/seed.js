@@ -71,7 +71,8 @@ grabPhotos(1)
 
     fs.writeFile(
       'database/dummyData.js',
-      `let sampleData = ${JSON.stringify(mongoData.slice(0, 3))}`,
+      `let dummyData = ${JSON.stringify(mongoData)} \n
+      module.exports = dummyData`,
       (err) => {
         if (err) console.log('Error writing', err);
         console.log('File was written');
