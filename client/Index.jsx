@@ -11,7 +11,7 @@ class Index extends React.Component {
 
   componentDidMount() {
     axios.get('/api/photos/0').then(({ data }) => {
-      this.setState({ photos: data });
+      this.setState({ photos: data[0] });
     });
   }
 
