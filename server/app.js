@@ -3,7 +3,8 @@ const db = require('../database/connection');
 const Photos = require('../database/Photos');
 
 const app = express();
-app.use(express.static('public'));
+// Server the same static for EACH lisitngId
+app.use('/:listingId', express.static('public'));
 
 app.get('/api/photos/thumbnail/:listingId', (req, res) => {
   Photos.find({ listingId: req.params.listingId })
