@@ -68,22 +68,21 @@ grid-row-end: 3;
 
 const Photogrid = ({ photos }) => {
   let collectionOfPhotos;
-
+  let arrayOfPhotos = [];
   // Wait for the aysnc componentDidMount (for photos prop not to be null)
   // and set the photos property
   if (photos !== null) {
-    collectionOfPhotos = photos.photos;
+    collectionOfPhotos = photos.photos.slice(0, 5);
     console.log('Here are the photos', collectionOfPhotos);
+    collectionOfPhotos.map((photo, i) => {
+      if (i === 0) arrayOfPhotos.push(<Big photo={photo.photoUrl}></Big>);
+      if (i === 1) arrayOfPhotos.push(<Photo1 photo={photo.photoUrl}></Photo1>);
+      if (i === 2) arrayOfPhotos.push(<Photo2 photo={photo.photoUrl}></Photo2>);
+      if (i === 3) arrayOfPhotos.push(<Photo3 photo={photo.photoUrl}></Photo3>);
+      if (i === 4) arrayOfPhotos.push(<Photo4 photo={photo.photoUrl}></Photo4>);
+    });
   }
-  return (
-    <GridContainer>
-      <Big>1</Big>
-      <Photo1>2</Photo1>
-      <Photo2>3</Photo2>
-      <Photo3>4</Photo3>
-      <Photo4>5</Photo4>
-    </GridContainer>
-  );
+  return <GridContainer>{arrayOfPhotos}</GridContainer>;
 };
 
 export default Photogrid;
