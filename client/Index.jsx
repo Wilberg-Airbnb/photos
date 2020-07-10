@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import MainPhotoCard from './components/PhotoCards/MainPhotoCard.jsx';
-
+import Photogrid from './components/PhotogridComponents/Photogrid.jsx';
 class Index extends React.Component {
   constructor(props) {
     super(props);
@@ -18,10 +18,10 @@ class Index extends React.Component {
 
   render() {
     return (
-      <h1>
-        <MainPhotoCard></MainPhotoCard>
-        Hey
-      </h1>
+      <div>
+        {/* <MainPhotoCard></MainPhotoCard> */}
+        <Photogrid photos={this.state.photos}></Photogrid>
+      </div>
     );
   }
 }
