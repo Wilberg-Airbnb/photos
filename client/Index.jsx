@@ -6,13 +6,17 @@ class Index extends React.Component {
     super(props);
     this.state = {
       photos: null,
+      listingId: window.location.pathname.slice(1, -1),
     };
   }
 
   componentDidMount() {
-    axios.get('/api/photos/0').then(({ data }) => {
-      this.setState({ photos: data[0] });
-    });
+    // Grab the set of photos based on the listing id.
+    axios
+      .get(`http://localhost:3001/api/photos/${this.state.listingId}`)
+      .then(({ data }) => {
+        this.setState({ photos: data[0] });
+      });
   }
 
   render() {

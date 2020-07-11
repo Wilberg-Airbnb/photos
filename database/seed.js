@@ -19,7 +19,7 @@ function grabPhotos(page) {
     .get(`https://picsum.photos/v2/list?page=${page}&limit=100`)
     .then(({ data }) => {
       let urls = data.map((photo) => {
-        return `${photo.download_url}?grayscale`;
+        return `${photo.download_url}`;
       });
       photosToChooseFrom.push(...urls);
     });

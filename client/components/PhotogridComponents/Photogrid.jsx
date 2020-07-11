@@ -7,7 +7,7 @@ const GridContainer = styled.div`
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 8px;
   grid-row-gap: 8px;
-  max-width: 900px;
+  max-width: 950px;
   height: 1000px;
 `;
 
@@ -20,6 +20,11 @@ const Big = styled.div`
   grid-area: 1 / 1 / 3 / 3;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+  &:hover {
+    -webkit-filter: grayscale(50%);
+    filter: brightness(80%);
+    opacity: 0.8;
+  }
 `;
 
 const Photo1 = styled.div`
@@ -29,6 +34,11 @@ const Photo1 = styled.div`
     props.photo ||
     'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
   border: 1px solid rgba(0, 0, 0, 0.8);
+  &:hover {
+    -webkit-filter: grayscale(50%);
+    filter: brightness(80%);
+    opacity: 0.8;
+  }
 `;
 
 const Photo2 = styled.div`
@@ -38,6 +48,11 @@ const Photo2 = styled.div`
     props.photo ||
     'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
   border: 1px solid rgba(0, 0, 0, 0.8);
+  &:hover {
+    -webkit-filter: grayscale(50%);
+    filter: brightness(80%);
+    opacity: 0.8;
+  }
 `;
 
 const Photo3 = styled.div`
@@ -48,6 +63,11 @@ const Photo3 = styled.div`
     'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
   border: 1px solid rgba(0, 0, 0, 0.8);
   border-top-right-radius: 15px;
+  &:hover {
+    -webkit-filter: grayscale(50%);
+    filter: brightness(80%);
+    opacity: 0.8;
+  }
 `;
 
 const Photo4 = styled.div`
@@ -58,12 +78,22 @@ const Photo4 = styled.div`
     'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
   border: 1px solid rgba(0, 0, 0, 0.8);
   border-bottom-right-radius: 15px;
+  &:hover {
+    -webkit-filter: grayscale(50%);
+    filter: brightness(80%);
+    opacity: 0.8;
+  }
 `;
 
-const Item1 = styled.div`
-background-image: url('https://picsum.photos/id/166/1280/720?grayscale'),
-grid-row-start: 1;
-grid-row-end: 3;
+const ShowAllButton = styled.button`
+  text-align: center;
+  margin-top: 80%;
+  border-radius: 5px;
+  margin-left: 40%;
+  padding: 6px 8px 6px 8px;
+  background-color: rgb(255, 255, 255);
+  font-size: 10px;
+  border-color: rgb(34, 34, 34);
 `;
 
 const Photogrid = ({ photos }) => {
@@ -79,7 +109,12 @@ const Photogrid = ({ photos }) => {
       if (i === 1) arrayOfPhotos.push(<Photo1 photo={photo.photoUrl}></Photo1>);
       if (i === 2) arrayOfPhotos.push(<Photo2 photo={photo.photoUrl}></Photo2>);
       if (i === 3) arrayOfPhotos.push(<Photo3 photo={photo.photoUrl}></Photo3>);
-      if (i === 4) arrayOfPhotos.push(<Photo4 photo={photo.photoUrl}></Photo4>);
+      if (i === 4)
+        arrayOfPhotos.push(
+          <Photo4 photo={photo.photoUrl}>
+            <ShowAllButton>Show All photos</ShowAllButton>
+          </Photo4>
+        );
     });
   }
   return <GridContainer>{arrayOfPhotos}</GridContainer>;
