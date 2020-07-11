@@ -87,11 +87,12 @@ const Photo4 = styled.div`
 
 const ShowAllButton = styled.button`
   text-align: center;
-  margin-top: 85%;
+  margin-top: 80%;
   border-radius: 5px;
-  padding: 4px;
+  margin-left: 40%;
+  padding: 6px 8px 6px 8px;
   background-color: rgb(255, 255, 255);
-  font-size: 11px;
+  font-size: 10px;
   border-color: rgb(34, 34, 34);
 `;
 
