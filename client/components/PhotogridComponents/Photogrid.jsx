@@ -85,6 +85,13 @@ const Photo4 = styled.div`
   }
 `;
 
+const ShowAllButton = styled.button`
+  text-align: center;
+  margin-top: 85%;
+  border-radius: 5px;
+  padding: 3px;
+`;
+
 const Photogrid = ({ photos }) => {
   let collectionOfPhotos;
   let arrayOfPhotos = [];
@@ -98,7 +105,12 @@ const Photogrid = ({ photos }) => {
       if (i === 1) arrayOfPhotos.push(<Photo1 photo={photo.photoUrl}></Photo1>);
       if (i === 2) arrayOfPhotos.push(<Photo2 photo={photo.photoUrl}></Photo2>);
       if (i === 3) arrayOfPhotos.push(<Photo3 photo={photo.photoUrl}></Photo3>);
-      if (i === 4) arrayOfPhotos.push(<Photo4 photo={photo.photoUrl}></Photo4>);
+      if (i === 4)
+        arrayOfPhotos.push(
+          <Photo4 photo={photo.photoUrl}>
+            <ShowAllButton>Show All photos</ShowAllButton>
+          </Photo4>
+        );
     });
   }
   return <GridContainer>{arrayOfPhotos}</GridContainer>;
