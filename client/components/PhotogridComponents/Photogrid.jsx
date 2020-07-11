@@ -89,7 +89,10 @@ const ShowAllButton = styled.button`
   text-align: center;
   margin-top: 85%;
   border-radius: 5px;
-  padding: 3px;
+  padding: 4px;
+  background-color: rgb(255, 255, 255);
+  font-size: 11px;
+  border-color: rgb(34, 34, 34);
 `;
 
 const Photogrid = ({ photos }) => {
