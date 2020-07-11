@@ -20,6 +20,11 @@ const Big = styled.div`
   grid-area: 1 / 1 / 3 / 3;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+  &:hover {
+    -webkit-filter: grayscale(50%);
+    filter: brightness(80%);
+    opacity: 0.8;
+  }
 `;
 
 const Photo1 = styled.div`
@@ -29,6 +34,11 @@ const Photo1 = styled.div`
     props.photo ||
     'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
   border: 1px solid rgba(0, 0, 0, 0.8);
+  &:hover {
+    -webkit-filter: grayscale(50%);
+    filter: brightness(80%);
+    opacity: 0.8;
+  }
 `;
 
 const Photo2 = styled.div`
@@ -38,6 +48,11 @@ const Photo2 = styled.div`
     props.photo ||
     'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
   border: 1px solid rgba(0, 0, 0, 0.8);
+  &:hover {
+    -webkit-filter: grayscale(50%);
+    filter: brightness(80%);
+    opacity: 0.8;
+  }
 `;
 
 const Photo3 = styled.div`
@@ -48,6 +63,11 @@ const Photo3 = styled.div`
     'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
   border: 1px solid rgba(0, 0, 0, 0.8);
   border-top-right-radius: 15px;
+  &:hover {
+    -webkit-filter: grayscale(50%);
+    filter: brightness(80%);
+    opacity: 0.8;
+  }
 `;
 
 const Photo4 = styled.div`
@@ -58,12 +78,11 @@ const Photo4 = styled.div`
     'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
   border: 1px solid rgba(0, 0, 0, 0.8);
   border-bottom-right-radius: 15px;
-`;
-
-const Item1 = styled.div`
-background-image: url('https://picsum.photos/id/166/1280/720?grayscale'),
-grid-row-start: 1;
-grid-row-end: 3;
+  &:hover {
+    -webkit-filter: grayscale(50%);
+    filter: brightness(80%);
+    opacity: 0.8;
+  }
 `;
 
 const Photogrid = ({ photos }) => {
