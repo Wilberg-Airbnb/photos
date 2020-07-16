@@ -96,28 +96,47 @@ const ShowAllButton = styled.button`
   border-color: rgb(34, 34, 34);
 `;
 
-const Photogrid = ({ photos }) => {
-  let collectionOfPhotos;
-  let arrayOfPhotos = [];
-  // Wait for the aysnc componentDidMount (for photos prop not to be null)
-  // and set the photos property
-  if (photos !== null) {
-    collectionOfPhotos = photos.photos.slice(0, 5);
-    console.log('Here are the photos', collectionOfPhotos);
-    collectionOfPhotos.map((photo, i) => {
-      if (i === 0) arrayOfPhotos.push(<Big photo={photo.photoUrl}></Big>);
-      if (i === 1) arrayOfPhotos.push(<Photo1 photo={photo.photoUrl}></Photo1>);
-      if (i === 2) arrayOfPhotos.push(<Photo2 photo={photo.photoUrl}></Photo2>);
-      if (i === 3) arrayOfPhotos.push(<Photo3 photo={photo.photoUrl}></Photo3>);
-      if (i === 4)
-        arrayOfPhotos.push(
-          <Photo4 photo={photo.photoUrl}>
-            <ShowAllButton>Show All photos</ShowAllButton>
-          </Photo4>
-        );
-    });
+class Photogrid extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      togglePhotosModal: false,
+    };
   }
-  return <GridContainer>{arrayOfPhotos}</GridContainer>;
-};
+  render() {
+    let collectionOfPhotos;
+    let arrayOfPhotos = [];
+    // Wait for the aysnc componentDidMount (for photos prop not to be null)
+    // and set the photos property
+    if (this.props.photos !== null) {
+      collectionOfPhotos = this.props.photos.photos.slice(0, 5);
+      collectionOfPhotos.map((photo, i) => {
+        if (i === 0) arrayOfPhotos.push(<Big photo={photo.photoUrl}></Big>);
+        if (i === 1)
+          arrayOfPhotos.push(<Photo1 photo={photo.photoUrl}></Photo1>);
+        if (i === 2)
+          arrayOfPhotos.push(<Photo2 photo={photo.photoUrl}></Photo2>);
+        if (i === 3)
+          arrayOfPhotos.push(<Photo3 photo={photo.photoUrl}></Photo3>);
+        if (i === 4)
+          arrayOfPhotos.push(
+            <Photo4 photo={photo.photoUrl}>
+              <ShowAllButton
+                onClick={() => {
+                  console.log('Clicked');
+                  this.setState({
+                    togglePhotosModal: !this.state.togglePhotosModal,
+                  });
+                }}
+              >
+                Show All photos
+              </ShowAllButton>
+            </Photo4>
+          );
+      });
+    }
+    return <GridContainer>{arrayOfPhotos}</GridContainer>;
+  }
+}
 
 export default Photogrid;
