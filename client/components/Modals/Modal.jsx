@@ -11,7 +11,7 @@ class Modal extends React.Component {
   render() {
     // This is the modal that our styled modal will be rendered into
     // photo-modal gets rendered as childer
-    return ReactDOM.createPortal(<div>{this.props.children}</div>, modalRoot);
+    return ReactDOM.createPortal(this.props.children, modalRoot);
   }
 }
 
