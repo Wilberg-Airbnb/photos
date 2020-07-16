@@ -4,9 +4,19 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
 let WholePage = styled.div`
+  /* position: absolute;
   height: 100%;
-  background-color: white;
-  z-index: 1;
+  background-color: black; */
+  position: fixed;
+  padding: 0;
+  margin: 0;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background: white;
 `;
 
 let Photo = styled.div`
@@ -29,9 +39,7 @@ let Photo = styled.div`
 
 const PhotoModal = ({ photos }) => {
   return (
-    <WholePage>
-      <Photo photo={photos[1].photoUrl}></Photo>
-    </WholePage>
+    <WholePage>{/* <Photo photo={photos[1].photoUrl}></Photo> */}</WholePage>
   );
 };
 
