@@ -45,7 +45,9 @@ class PhotoModal extends React.Component {
   }
   render() {
     return (
-      <WholePage>{/* <Photo photo={photos[1].photoUrl}></Photo> */}</WholePage>
+      <WholePage>
+        <Photo photo={this.props.photos[1].photoUrl}></Photo>
+      </WholePage>
     );
   }
 }
