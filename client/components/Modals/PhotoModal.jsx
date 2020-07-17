@@ -16,7 +16,7 @@ let WholePage = styled.div`
 
   width: 100%;
   height: 100%;
-  background: white;
+  background: green;
 `;
 
 let Photo = styled.div`
@@ -37,10 +37,17 @@ let Photo = styled.div`
     'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
 `;
 
-const PhotoModal = ({ photos }) => {
-  return (
-    <WholePage>{/* <Photo photo={photos[1].photoUrl}></Photo> */}</WholePage>
-  );
-};
+class PhotoModal extends React.Component {
+  componentDidMount() {
+    // Once the component is open, it mounted, prevent scrolling
+    document.documentElement.style.overflow = 'hidden';
+    document.body.scroll = 'no';
+  }
+  render() {
+    return (
+      <WholePage>{/* <Photo photo={photos[1].photoUrl}></Photo> */}</WholePage>
+    );
+  }
+}
 
 export default PhotoModal;

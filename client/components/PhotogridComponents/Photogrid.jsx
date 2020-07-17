@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import Modal from '../Modals/Modal.jsx';
+import PhotoModal from '../Modals/PhotoModal.jsx';
 
 const GridContainer = styled.div`
   display: grid;
@@ -135,7 +137,17 @@ class Photogrid extends React.Component {
           );
       });
     }
-    return <GridContainer>{arrayOfPhotos}</GridContainer>;
+    return (
+      <GridContainer>
+        {arrayOfPhotos}
+        {/* Conditional rendering the modal when you  click Show All */}
+        {this.state.togglePhotosModal ? (
+          <Modal>
+            <PhotoModal photos={this.props.photos.photos}></PhotoModal>
+          </Modal>
+        ) : null}
+      </GridContainer>
+    );
   }
 }
 
