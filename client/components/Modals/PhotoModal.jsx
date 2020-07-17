@@ -70,9 +70,7 @@ class PhotoModal extends React.Component {
     return (
       <WholePage>
         <UpperContainer>
-          <CloseButton onClick={() => console.log('Cicked')}>
-            X Close
-          </CloseButton>
+          <CloseButton onClick={() => this.props.close()}>X Close</CloseButton>
           <Count>1/16</Count>
           <PhotoRecord> 88 X</PhotoRecord>
         </UpperContainer>

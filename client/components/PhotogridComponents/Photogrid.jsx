@@ -104,7 +104,14 @@ class Photogrid extends React.Component {
     this.state = {
       togglePhotosModal: false,
     };
+    this.closeModal = this.closeModal.bind(this);
   }
+  closeModal() {
+    this.setState({
+      togglePhotosModal: false,
+    });
+  }
+
   render() {
     let collectionOfPhotos;
     let arrayOfPhotos = [];
@@ -143,7 +150,10 @@ class Photogrid extends React.Component {
         {/* Conditional rendering the modal when you  click Show All */}
         {this.state.togglePhotosModal ? (
           <Modal>
-            <PhotoModal photos={this.props.photos.photos}></PhotoModal>
+            <PhotoModal
+              photos={this.props.photos.photos}
+              close={this.closeModal}
+            ></PhotoModal>
           </Modal>
         ) : null}
       </GridContainer>
