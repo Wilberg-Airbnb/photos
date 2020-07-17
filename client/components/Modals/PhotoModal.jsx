@@ -16,7 +16,7 @@ let WholePage = styled.div`
 
   width: 100%;
   height: 100%;
-  background: green;
+  background: white;
 `;
 
 let Photo = styled.div`
@@ -37,6 +37,30 @@ let Photo = styled.div`
     'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
 `;
 
+const CloseButton = styled.button`
+  text-align: center;
+  border-radius: 5px;
+  padding: 6px 8px 6px 8px;
+  background-color: rgb(255, 255, 255);
+  font-size: 10px;
+  border-color: rgb(34, 34, 34);
+  z-index: -1;
+  margin-left: 10px;
+`;
+
+const Count = styled.span`
+  text-align: center;
+`;
+
+const ButtonContainers = styled.div``;
+
+const UpperContainer = styled.div`
+  display: inline-flex;
+  margin-top: 2%;
+  justify-content: space-between;
+  width: 98%;
+`;
+
 class PhotoModal extends React.Component {
   componentDidMount() {
     // Once the component is open, it mounted, prevent scrolling
@@ -46,6 +70,11 @@ class PhotoModal extends React.Component {
   render() {
     return (
       <WholePage>
+        <UpperContainer>
+          <CloseButton>X Close</CloseButton>
+          <Count>1/16</Count>
+          <ButtonContainers> 88 X</ButtonContainers>
+        </UpperContainer>
         <Photo photo={this.props.photos[1].photoUrl}></Photo>
       </WholePage>
     );
