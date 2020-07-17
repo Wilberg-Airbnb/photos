@@ -44,7 +44,6 @@ const CloseButton = styled.button`
   background-color: rgb(255, 255, 255);
   font-size: 10px;
   border-color: rgb(34, 34, 34);
-  z-index: -1;
   margin-left: 10px;
 `;
 
@@ -52,7 +51,7 @@ const Count = styled.span`
   text-align: center;
 `;
 
-const ButtonContainers = styled.div``;
+const PhotoRecord = styled.div``;
 
 const UpperContainer = styled.div`
   display: inline-flex;
@@ -71,9 +70,11 @@ class PhotoModal extends React.Component {
     return (
       <WholePage>
         <UpperContainer>
-          <CloseButton>X Close</CloseButton>
+          <CloseButton onClick={() => console.log('Cicked')}>
+            X Close
+          </CloseButton>
           <Count>1/16</Count>
-          <ButtonContainers> 88 X</ButtonContainers>
+          <PhotoRecord> 88 X</PhotoRecord>
         </UpperContainer>
         <Photo photo={this.props.photos[1].photoUrl}></Photo>
       </WholePage>
