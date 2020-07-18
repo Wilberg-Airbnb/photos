@@ -74,11 +74,14 @@ class PhotoModal extends React.Component {
   }
   render() {
     let photoClicked = this.props.photoClicked;
+    let photoLength = this.props.photos.length;
     return (
       <WholePage>
         <UpperContainer>
           <CloseButton onClick={() => this.props.close()}>X Close</CloseButton>
-          <Count>1/16</Count>
+          <Count>
+            {photoClicked + 1}/{photoLength}
+          </Count>
           <PhotoRecord> 88 X</PhotoRecord>
         </UpperContainer>
         <Photo photo={this.props.photos[photoClicked].photoUrl}></Photo>
