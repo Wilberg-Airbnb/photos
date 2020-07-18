@@ -2,6 +2,8 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import SaveAltIcon from '@material-ui/icons/SaveAlt';
 
 let WholePage = styled.div`
   /* position: absolute;
@@ -82,7 +84,10 @@ class PhotoModal extends React.Component {
           <Count>
             {photoClicked + 1}/{photoLength}
           </Count>
-          <PhotoRecord> 88 X</PhotoRecord>
+          <PhotoRecord>
+            {' '}
+            <FavoriteBorderIcon></FavoriteBorderIcon>88 X
+          </PhotoRecord>
         </UpperContainer>
         <Photo photo={this.props.photos[photoClicked].photoUrl}></Photo>
       </WholePage>
