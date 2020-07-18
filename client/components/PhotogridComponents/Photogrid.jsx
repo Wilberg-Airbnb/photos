@@ -103,8 +103,16 @@ class Photogrid extends React.Component {
     super(props);
     this.state = {
       togglePhotosModal: false,
+      photoClicked: null,
     };
+    this.closeModal = this.closeModal.bind(this);
   }
+  closeModal() {
+    this.setState({
+      togglePhotosModal: false,
+    });
+  }
+
   render() {
     let collectionOfPhotos;
     let arrayOfPhotos = [];
@@ -113,21 +121,76 @@ class Photogrid extends React.Component {
     if (this.props.photos !== null) {
       collectionOfPhotos = this.props.photos.photos.slice(0, 5);
       collectionOfPhotos.map((photo, i) => {
-        if (i === 0) arrayOfPhotos.push(<Big photo={photo.photoUrl}></Big>);
+        if (i === 0)
+          arrayOfPhotos.push(
+            <Big
+              photo={photo.photoUrl}
+              onClick={() => {
+                console.log('Clicked', i);
+                this.setState({
+                  togglePhotosModal: !this.state.togglePhotosModal,
+                  photoClicked: 0,
+                });
+              }}
+            ></Big>
+          );
         if (i === 1)
-          arrayOfPhotos.push(<Photo1 photo={photo.photoUrl}></Photo1>);
+          arrayOfPhotos.push(
+            <Photo1
+              onClick={() => {
+                console.log('Clicked', i);
+                this.setState({
+                  togglePhotosModal: !this.state.togglePhotosModal,
+                  photoClicked: 1,
+                });
+              }}
+              photo={photo.photoUrl}
+            ></Photo1>
+          );
         if (i === 2)
-          arrayOfPhotos.push(<Photo2 photo={photo.photoUrl}></Photo2>);
+          arrayOfPhotos.push(
+            <Photo2
+              onClick={() => {
+                console.log('Clicked', i);
+                this.setState({
+                  togglePhotosModal: !this.state.togglePhotosModal,
+                  photoClicked: 2,
+                });
+              }}
+              photo={photo.photoUrl}
+            ></Photo2>
+          );
         if (i === 3)
-          arrayOfPhotos.push(<Photo3 photo={photo.photoUrl}></Photo3>);
+          arrayOfPhotos.push(
+            <Photo3
+              onClick={() => {
+                console.log('Clicked', i);
+                this.setState({
+                  togglePhotosModal: !this.state.togglePhotosModal,
+                  photoClicked: 3,
+                });
+              }}
+              photo={photo.photoUrl}
+            ></Photo3>
+          );
         if (i === 4)
           arrayOfPhotos.push(
-            <Photo4 photo={photo.photoUrl}>
+            <Photo4
+              photo={photo.photoUrl}
+              onClick={() => {
+                console.log('Clicked', i);
+                this.setState({
+                  togglePhotosModal: !this.state.togglePhotosModal,
+                  photoClicked: 4,
+                });
+              }}
+            >
               <ShowAllButton
                 onClick={() => {
-                  console.log('Clicked');
+                  console.log('Clicked', i);
                   this.setState({
                     togglePhotosModal: !this.state.togglePhotosModal,
+                    photoClicked: 0,
                   });
                 }}
               >
@@ -143,7 +206,11 @@ class Photogrid extends React.Component {
         {/* Conditional rendering the modal when you  click Show All */}
         {this.state.togglePhotosModal ? (
           <Modal>
-            <PhotoModal photos={this.props.photos.photos}></PhotoModal>
+            <PhotoModal
+              photos={this.props.photos.photos}
+              close={this.closeModal}
+              photoClicked={this.state.photoClicked}
+            ></PhotoModal>
           </Modal>
         ) : null}
       </GridContainer>
