@@ -58,9 +58,9 @@ const PhotoRecord = styled.div``;
 
 const UpperContainer = styled.div`
   display: inline-flex;
-  margin-top: 2%;
+  margin-top: 2.5%;
   justify-content: space-between;
-  width: 98%;
+  width: 96%;
 `;
 
 class PhotoModal extends React.Component {
@@ -85,8 +85,8 @@ class PhotoModal extends React.Component {
             {photoClicked + 1}/{photoLength}
           </Count>
           <PhotoRecord>
-            {' '}
-            <FavoriteBorderIcon></FavoriteBorderIcon>88 X
+            <SaveAltIcon style={{ fontSize: 13 }}></SaveAltIcon>
+            <FavoriteBorderIcon style={{ fontSize: 13 }}></FavoriteBorderIcon>
           </PhotoRecord>
         </UpperContainer>
         <Photo photo={this.props.photos[photoClicked].photoUrl}></Photo>
