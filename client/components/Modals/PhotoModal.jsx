@@ -31,6 +31,7 @@ let Photo = styled.div`
   position: fixed;
   margin: auto;
   width: 75%;
+  min-width: 700px;
   height: 75%;
   background-image: url(${(props) =>
     props.photo ||
@@ -61,12 +62,18 @@ const UpperContainer = styled.div`
 `;
 
 class PhotoModal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   componentDidMount() {
     // Once the component is open, it mounted, prevent scrolling
     document.documentElement.style.overflow = 'hidden';
     document.body.scroll = 'no';
   }
   render() {
+    let photoClicked = this.props.photoClicked;
     return (
       <WholePage>
         <UpperContainer>
@@ -74,7 +81,7 @@ class PhotoModal extends React.Component {
           <Count>1/16</Count>
           <PhotoRecord> 88 X</PhotoRecord>
         </UpperContainer>
-        <Photo photo={this.props.photos[1].photoUrl}></Photo>
+        <Photo photo={this.props.photos[photoClicked].photoUrl}></Photo>
       </WholePage>
     );
   }
