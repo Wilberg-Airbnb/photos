@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import SaveAltIcon from '@material-ui/icons/SaveAlt';
-
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 let WholePage = styled.div`
   /* position: absolute;
   height: 100%;

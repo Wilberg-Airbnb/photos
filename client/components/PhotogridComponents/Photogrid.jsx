@@ -3,14 +3,18 @@ import styled from 'styled-components';
 import Modal from '../Modals/Modal.jsx';
 import PhotoModal from '../Modals/PhotoModal.jsx';
 
+const ContainerDiv = styled.div`
+  left: 50%;
+`;
+
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 8px;
   grid-row-gap: 8px;
-  max-width: 950px;
-  height: 1000px;
+  width: 900px;
+  height: 1200px;
 `;
 
 const Big = styled.div`
@@ -201,19 +205,22 @@ class Photogrid extends React.Component {
       });
     }
     return (
-      <GridContainer>
-        {arrayOfPhotos}
-        {/* Conditional rendering the modal when you  click Show All */}
-        {this.state.togglePhotosModal ? (
-          <Modal>
-            <PhotoModal
-              photos={this.props.photos.photos}
-              close={this.closeModal}
-              photoClicked={this.state.photoClicked}
-            ></PhotoModal>
-          </Modal>
-        ) : null}
-      </GridContainer>
+      <ContainerDiv>
+        <GridContainer>
+          {arrayOfPhotos}
+          {/* Conditional rendering the modal when you  click Show All */}
+          {this.state.togglePhotosModal ? (
+            <Modal>
+              <PhotoModal
+                photos={this.props.photos.photos}
+                close={this.closeModal}
+                photoClicked={this.state.photoClicked}
+              ></PhotoModal>
+            </Modal>
+          ) : null}
+        </GridContainer>
+        <img src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"></img>
+      </ContainerDiv>
     );
   }
 }

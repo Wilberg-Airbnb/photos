@@ -6,7 +6,6 @@ const Photos = require('./Photos');
 
 let photosToChooseFrom = [];
 let mongoDataHolder = [];
-
 function insertPhotoSets(data) {
   Photos.deleteMany({}).catch((err) => console.log('Error deleting', err));
   Photos.create(data)
