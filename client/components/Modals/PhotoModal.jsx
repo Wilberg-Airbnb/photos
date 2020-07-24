@@ -40,6 +40,7 @@ let Photo = styled.div`
     props.photo ||
     'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
 `;
+const Button = styled.button``;
 
 const CloseButton = styled.button`
   text-align: center;
@@ -78,9 +79,12 @@ class PhotoModal extends React.Component {
   render() {
     let photoClicked = this.props.photoClicked;
     let photoLength = this.props.photos.length;
+    let changePhoto = this.props.changePhoto;
     return (
       <WholePage>
         <UpperContainer>
+          <Button onClick={() => changePhoto('left')}>Left</Button>
+          <Button onClick={() => changePhoto('right')}>Right</Button>
           <CloseButton onClick={() => this.props.close()}>X Close</CloseButton>
           <Count>
             {photoClicked + 1}/{photoLength}
