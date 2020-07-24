@@ -11,9 +11,9 @@ services:
     volumes:
       - ./:/app/
       - /app/node_modules
-    command: bash -c "/app/wait-for-it.sh --timeout=0 mongo:27017 && npm run docker"
+    command: bash -c "/app/wait-for-it.sh --timeout=0 mongo:37017 && npm run docker"
   mongo:
-    container_name: mongo
+    container_name: mongodb
     image: mongo:3.5.9
     ports:
       - '37017:37017'
