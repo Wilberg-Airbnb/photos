@@ -83,8 +83,21 @@ class PhotoModal extends React.Component {
     return (
       <WholePage>
         <UpperContainer>
-          <Button onClick={() => changePhoto('left')}>Left</Button>
-          <Button onClick={() => changePhoto('right')}>Right</Button>
+          <Button
+            onClick={() => {
+              if (photoClicked > 0) changePhoto('left');
+            }}
+          >
+            Left
+          </Button>
+
+          <Button
+            onClick={() => {
+              if (photoClicked < photoLength - 1) changePhoto('right');
+            }}
+          >
+            Right
+          </Button>
           <CloseButton onClick={() => this.props.close()}>X Close</CloseButton>
           <Count>
             {photoClicked + 1}/{photoLength}
