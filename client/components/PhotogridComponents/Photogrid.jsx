@@ -3,14 +3,18 @@ import styled from 'styled-components';
 import Modal from '../Modals/Modal.jsx';
 import PhotoModal from '../Modals/PhotoModal.jsx';
 
+const ContainerDiv = styled.div`
+  left: 50%;
+`;
+
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 8px;
   grid-row-gap: 8px;
-  max-width: 950px;
-  height: 1000px;
+  width: 900px;
+  height: 1200px;
 `;
 
 const Big = styled.div`
@@ -103,8 +107,16 @@ class Photogrid extends React.Component {
     super(props);
     this.state = {
       togglePhotosModal: false,
+      photoClicked: null,
     };
+    this.closeModal = this.closeModal.bind(this);
   }
+  closeModal() {
+    this.setState({
+      togglePhotosModal: false,
+    });
+  }
+
   render() {
     let collectionOfPhotos;
     let arrayOfPhotos = [];
@@ -113,21 +125,76 @@ class Photogrid extends React.Component {
     if (this.props.photos !== null) {
       collectionOfPhotos = this.props.photos.photos.slice(0, 5);
       collectionOfPhotos.map((photo, i) => {
-        if (i === 0) arrayOfPhotos.push(<Big photo={photo.photoUrl}></Big>);
+        if (i === 0)
+          arrayOfPhotos.push(
+            <Big
+              photo={photo.photoUrl}
+              onClick={() => {
+                console.log('Clicked', i);
+                this.setState({
+                  togglePhotosModal: !this.state.togglePhotosModal,
+                  photoClicked: 0,
+                });
+              }}
+            ></Big>
+          );
         if (i === 1)
-          arrayOfPhotos.push(<Photo1 photo={photo.photoUrl}></Photo1>);
+          arrayOfPhotos.push(
+            <Photo1
+              onClick={() => {
+                console.log('Clicked', i);
+                this.setState({
+                  togglePhotosModal: !this.state.togglePhotosModal,
+                  photoClicked: 1,
+                });
+              }}
+              photo={photo.photoUrl}
+            ></Photo1>
+          );
         if (i === 2)
-          arrayOfPhotos.push(<Photo2 photo={photo.photoUrl}></Photo2>);
+          arrayOfPhotos.push(
+            <Photo2
+              onClick={() => {
+                console.log('Clicked', i);
+                this.setState({
+                  togglePhotosModal: !this.state.togglePhotosModal,
+                  photoClicked: 2,
+                });
+              }}
+              photo={photo.photoUrl}
+            ></Photo2>
+          );
         if (i === 3)
-          arrayOfPhotos.push(<Photo3 photo={photo.photoUrl}></Photo3>);
+          arrayOfPhotos.push(
+            <Photo3
+              onClick={() => {
+                console.log('Clicked', i);
+                this.setState({
+                  togglePhotosModal: !this.state.togglePhotosModal,
+                  photoClicked: 3,
+                });
+              }}
+              photo={photo.photoUrl}
+            ></Photo3>
+          );
         if (i === 4)
           arrayOfPhotos.push(
-            <Photo4 photo={photo.photoUrl}>
+            <Photo4
+              photo={photo.photoUrl}
+              onClick={() => {
+                console.log('Clicked', i);
+                this.setState({
+                  togglePhotosModal: !this.state.togglePhotosModal,
+                  photoClicked: 4,
+                });
+              }}
+            >
               <ShowAllButton
                 onClick={() => {
-                  console.log('Clicked');
+                  console.log('Clicked', i);
                   this.setState({
                     togglePhotosModal: !this.state.togglePhotosModal,
+                    photoClicked: 0,
                   });
                 }}
               >
@@ -138,15 +205,22 @@ class Photogrid extends React.Component {
       });
     }
     return (
-      <GridContainer>
-        {arrayOfPhotos}
-        {/* Conditional rendering the modal when you  click Show All */}
-        {this.state.togglePhotosModal ? (
-          <Modal>
-            <PhotoModal photos={this.props.photos.photos}></PhotoModal>
-          </Modal>
-        ) : null}
-      </GridContainer>
+      <ContainerDiv>
+        <GridContainer>
+          {arrayOfPhotos}
+          {/* Conditional rendering the modal when you  click Show All */}
+          {this.state.togglePhotosModal ? (
+            <Modal>
+              <PhotoModal
+                photos={this.props.photos.photos}
+                close={this.closeModal}
+                photoClicked={this.state.photoClicked}
+              ></PhotoModal>
+            </Modal>
+          ) : null}
+        </GridContainer>
+        <img src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"></img>
+      </ContainerDiv>
     );
   }
 }
