@@ -110,11 +110,23 @@ class Photogrid extends React.Component {
       photoClicked: null,
     };
     this.closeModal = this.closeModal.bind(this);
+    this.changePhoto = this.changePhoto.bind(this);
   }
   closeModal() {
     this.setState({
       togglePhotosModal: false,
     });
+  }
+  changePhoto(direction) {
+    if (direction === 'left') {
+      this.setState({
+        photoClicked: this.state.photoClicked - 1,
+      });
+    } else if (direction === 'right') {
+      this.setState({
+        photoClicked: this.state.photoClicked + 1,
+      });
+    }
   }
 
   render() {
@@ -191,9 +203,9 @@ class Photogrid extends React.Component {
             >
               <ShowAllButton
                 onClick={() => {
+                  // Have to display from zero on button click
                   console.log('Clicked', i);
                   this.setState({
-                    togglePhotosModal: !this.state.togglePhotosModal,
                     photoClicked: 0,
                   });
                 }}
@@ -215,6 +227,7 @@ class Photogrid extends React.Component {
                 photos={this.props.photos.photos}
                 close={this.closeModal}
                 photoClicked={this.state.photoClicked}
+                changePhoto={this.changePhoto}
               ></PhotoModal>
             </Modal>
           ) : null}
