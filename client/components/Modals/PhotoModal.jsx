@@ -65,6 +65,15 @@ const UpperContainer = styled.div`
   width: 96%;
 `;
 
+const ButtonContainer = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  height: 100%;
+  align-items: center;
+`;
+
 class PhotoModal extends React.Component {
   constructor(props) {
     super(props);
@@ -83,21 +92,6 @@ class PhotoModal extends React.Component {
     return (
       <WholePage>
         <UpperContainer>
-          <Button
-            onClick={() => {
-              if (photoClicked > 0) changePhoto('left');
-            }}
-          >
-            Left
-          </Button>
-
-          <Button
-            onClick={() => {
-              if (photoClicked < photoLength - 1) changePhoto('right');
-            }}
-          >
-            Right
-          </Button>
           <CloseButton onClick={() => this.props.close()}>X Close</CloseButton>
           <Count>
             {photoClicked + 1}/{photoLength}
@@ -107,6 +101,26 @@ class PhotoModal extends React.Component {
             <FavoriteBorderIcon style={{ fontSize: 13 }}></FavoriteBorderIcon>
           </PhotoRecord>
         </UpperContainer>
+        <ButtonContainer>
+          <div>
+            <Button
+              onClick={() => {
+                if (photoClicked > 0) changePhoto('left');
+              }}
+            >
+              Left
+            </Button>
+          </div>
+          <div>
+            <Button
+              onClick={() => {
+                if (photoClicked < photoLength - 1) changePhoto('right');
+              }}
+            >
+              Right
+            </Button>
+          </div>
+        </ButtonContainer>
         <Photo photo={this.props.photos[photoClicked].photoUrl}></Photo>
       </WholePage>
     );
