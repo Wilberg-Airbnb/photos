@@ -27,9 +27,7 @@ class Index extends React.Component {
       fetch(`http://52.14.166.9:3001/api/photos/${this.state.listingId}`),
       fetch(`http://52.14.166.9:4000/api/description/${this.state.listingId}`),
       fetch(`http://3.12.169.208:2001/api/location/${this.state.listingId}`),
-      fetch(
-        `http://ec2-3-129-14-177.us-east-2.compute.amazonaws.com:8080/api/reviews/${this.state.listingId}`
-      ),
+      fetch(`http://52.14.214.44:8080/api/reviews/${this.state.listingId}`),
     ])
       .then(([photos, description, location, reviews]) => {
         return Promise.all([
