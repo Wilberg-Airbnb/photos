@@ -13,7 +13,7 @@ class Index extends React.Component {
   componentDidMount() {
     // Grab the set of photos based on the listing id.
     axios
-      .get(`http://52.14.166.9:3001/${this.state.listingId}`)
+      .get(`http://52.14.166.9:3001/api/photos/${this.state.listingId}`)
       .then(({ data }) => {
         this.setState({ photos: data[0] });
       });
