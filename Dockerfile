@@ -1,11 +1,11 @@
 FROM node:11
 
-WORKDIR /app/
+WORKDIR /photoapp/
 
-COPY package*.json /app/
+COPY package*.json /photoapp/
 
 RUN npm install
-COPY . /app
+COPY . /photoapp
 
-COPY wait-for-it.sh /app/wait-for-it.sh
-RUN chmod +x /app/wait-for-it.sh
+RUN chmod +x /photoapp/wait-for-it.sh
+COPY wait-for-it.sh /photoapp/wait-for-it.sh
