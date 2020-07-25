@@ -12,7 +12,8 @@
     "react-dev": "webpack -d --watch",
     "seed": "node database/seed.js",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "docker": "concurrently \"node database/seed.js\" \"nodemon ./server/server.js --ignore node_modules\""
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -23,6 +24,7 @@
     "babel-loader": "^8.1.0",
     "bufferutil": "^4.0.1",
     "canvas": "^2.6.1",
+    "concurrently": "^5.2.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "es6-promise": "^4.2.8",

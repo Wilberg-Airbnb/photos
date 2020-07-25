@@ -1,0 +1,20 @@
+version: '3'
+services:
+  photoapp:
+    container_name: airbrb-photos
+    restart: always
+    build: .
+    ports:
+      - '3001:3001'
+    depends_on:
+      - mongodb
+    volumes:
+      - ./:/photoapp/
+      - /photoapp/node_modules
+      - ./wait-for-it.sh:/photoapp/wait-for-it.sh
+    command: bash -c "/photoapp/wait-for-it.sh --timeout=0 mongodb:27017 && npm run docker"
+  mongodb:
+    container_name: mongodb
+    image: mongo:3.5.9
+    ports:
+      - '27018:27017'
