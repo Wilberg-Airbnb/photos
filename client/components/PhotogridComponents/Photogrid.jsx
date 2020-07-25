@@ -19,7 +19,7 @@ const GridContainer = styled.div`
 const Big = styled.div`
   height: 455px;
   width: 475px;
-  background-color: pink;
+  background-color: rgba(250, 178, 210, 0.55);
   background-image: url(${(props) =>
     props.photo ||
     'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
@@ -33,68 +33,23 @@ const Big = styled.div`
   }
 `;
 
-const Photo1 = styled.div`
+const Photo1 = styled(Big)`
   height: 220px;
   width: 235px;
-  background-color: pink;
-  background-image: url(${(props) =>
-    props.photo ||
-    'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  &:hover {
-    -webkit-filter: grayscale(50%);
-    filter: brightness(80%);
-    opacity: 0.8;
-  }
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 `;
 
-const Photo2 = styled.div`
-  height: 220px;
-  width: 235px;
+const Photo2 = styled(Photo1)`
   margin-top: 10px;
-  background-color: pink;
-  background-image: url(${(props) =>
-    props.photo ||
-    'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  &:hover {
-    -webkit-filter: grayscale(50%);
-    filter: brightness(80%);
-    opacity: 0.8;
-  }
 `;
 
-const Photo3 = styled.div`
-  height: 220px;
-  width: 235px;
-  background-color: pink;
-  background-image: url(${(props) =>
-    props.photo ||
-    'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
-  border: 1px solid rgba(0, 0, 0, 0.8);
+const Photo3 = styled(Photo1)`
   border-top-right-radius: 15px;
-  &:hover {
-    -webkit-filter: grayscale(50%);
-    filter: brightness(80%);
-    opacity: 0.8;
-  }
 `;
 
-const Photo4 = styled.div`
-  height: 220px;
-  width: 235px;
-  margin-top: 10px;
-  background-color: pink;
-  background-image: url(${(props) =>
-    props.photo ||
-    'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
-  border: 1px solid rgba(0, 0, 0, 0.8);
+const Photo4 = styled(Photo2)`
   border-bottom-right-radius: 15px;
-  &:hover {
-    -webkit-filter: grayscale(50%);
-    filter: brightness(80%);
-    opacity: 0.8;
-  }
 `;
 
 const ShowAllButton = styled.button`
