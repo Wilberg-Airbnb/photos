@@ -8,22 +8,21 @@ const ContainerDiv = styled.div`
 `;
 
 const GridContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 8px;
-  grid-row-gap: 8px;
-  width: 900px;
-  height: 1200px;
+  display: flex;
+  height: 475px;
+  width: 975px;
+  flex-wrap: wrap;
+  flex-direction: column;
 `;
 
 const Big = styled.div`
-  background-color: pink;
+  height: 455px;
+  width: 475px;
+  background-color: rgba(250, 178, 210, 0.55);
   background-image: url(${(props) =>
     props.photo ||
     'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
   border: 1px solid rgba(0, 0, 0, 0.8);
-  grid-area: 1 / 1 / 3 / 3;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   &:hover {
@@ -33,62 +32,23 @@ const Big = styled.div`
   }
 `;
 
-const Photo1 = styled.div`
-  grid-area: 1 / 3 / 2 / 4;
-  background-color: pink;
-  background-image: url(${(props) =>
-    props.photo ||
-    'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  &:hover {
-    -webkit-filter: grayscale(50%);
-    filter: brightness(80%);
-    opacity: 0.8;
-  }
+const Photo1 = styled(Big)`
+  height: 220px;
+  width: 235px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 `;
 
-const Photo2 = styled.div`
-  grid-area: 2 / 3 / 3 / 4;
-  background-color: pink;
-  background-image: url(${(props) =>
-    props.photo ||
-    'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  &:hover {
-    -webkit-filter: grayscale(50%);
-    filter: brightness(80%);
-    opacity: 0.8;
-  }
+const Photo2 = styled(Photo1)`
+  margin-top: 10px;
 `;
 
-const Photo3 = styled.div`
-  grid-area: 1 / 4 / 2 / 5;
-  background-color: pink;
-  background-image: url(${(props) =>
-    props.photo ||
-    'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
-  border: 1px solid rgba(0, 0, 0, 0.8);
+const Photo3 = styled(Photo1)`
   border-top-right-radius: 15px;
-  &:hover {
-    -webkit-filter: grayscale(50%);
-    filter: brightness(80%);
-    opacity: 0.8;
-  }
 `;
 
-const Photo4 = styled.div`
-  grid-area: 2 / 4 / 3 / 5;
-  background-color: pink;
-  background-image: url(${(props) =>
-    props.photo ||
-    'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
-  border: 1px solid rgba(0, 0, 0, 0.8);
+const Photo4 = styled(Photo2)`
   border-bottom-right-radius: 15px;
-  &:hover {
-    -webkit-filter: grayscale(50%);
-    filter: brightness(80%);
-    opacity: 0.8;
-  }
 `;
 
 const ShowAllButton = styled.button`
@@ -135,7 +95,7 @@ class Photogrid extends React.Component {
     // Wait for the aysnc componentDidMount (for photos prop not to be null)
     // and set the photos property
     if (this.props.photos !== null) {
-      collectionOfPhotos = this.props.photos.photos.slice(0, 5);
+      collectionOfPhotos = this.props.photos.slice(0, 5);
       collectionOfPhotos.map((photo, i) => {
         if (i === 0)
           arrayOfPhotos.push(
@@ -229,7 +189,7 @@ class Photogrid extends React.Component {
           {this.state.togglePhotosModal ? (
             <Modal>
               <PhotoModal
-                photos={this.props.photos.photos}
+                photos={this.props.photos}
                 close={this.closeModal}
                 photoClicked={this.state.photoClicked}
                 changePhoto={this.changePhoto}
