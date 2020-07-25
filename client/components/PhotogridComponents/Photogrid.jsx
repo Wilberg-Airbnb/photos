@@ -190,7 +190,7 @@ class Photogrid extends React.Component {
           {this.state.togglePhotosModal ? (
             <Modal>
               <PhotoModal
-                photos={this.props.photos.photos}
+                photos={this.props.photos}
                 close={this.closeModal}
                 photoClicked={this.state.photoClicked}
                 changePhoto={this.changePhoto}
