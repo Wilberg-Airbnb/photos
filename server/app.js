@@ -1,8 +1,10 @@
 const express = require('express');
 const db = require('../database/connection');
+const cors = require('cors');
 const Photos = require('../database/Photos');
 
 const app = express();
+app.use(cors());
 // Server the same static for EACH lisitngId
 app.use('/:listingId', express.static('public'));
 

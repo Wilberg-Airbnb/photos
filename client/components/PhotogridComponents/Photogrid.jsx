@@ -140,6 +140,7 @@ class Photogrid extends React.Component {
         if (i === 0)
           arrayOfPhotos.push(
             <Big
+              key={photo._id}
               photo={photo.photoUrl}
               onClick={() => {
                 console.log('Clicked', i);
@@ -153,6 +154,7 @@ class Photogrid extends React.Component {
         if (i === 1)
           arrayOfPhotos.push(
             <Photo1
+              key={photo._id}
               onClick={() => {
                 console.log('Clicked', i);
                 this.setState({
@@ -166,6 +168,7 @@ class Photogrid extends React.Component {
         if (i === 2)
           arrayOfPhotos.push(
             <Photo2
+              key={photo._id}
               onClick={() => {
                 console.log('Clicked', i);
                 this.setState({
@@ -179,6 +182,7 @@ class Photogrid extends React.Component {
         if (i === 3)
           arrayOfPhotos.push(
             <Photo3
+              key={photo._id}
               onClick={() => {
                 console.log('Clicked', i);
                 this.setState({
@@ -192,6 +196,7 @@ class Photogrid extends React.Component {
         if (i === 4)
           arrayOfPhotos.push(
             <Photo4
+              key={photo._id}
               photo={photo.photoUrl}
               onClick={() => {
                 console.log('Clicked', i);
