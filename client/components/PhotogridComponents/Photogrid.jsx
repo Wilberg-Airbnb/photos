@@ -96,7 +96,7 @@ class Photogrid extends React.Component {
     // Wait for the aysnc componentDidMount (for photos prop not to be null)
     // and set the photos property
     if (this.props.photos !== null) {
-      collectionOfPhotos = this.props.photos.photos.slice(0, 5);
+      collectionOfPhotos = this.props.photos.slice(0, 5);
       collectionOfPhotos.map((photo, i) => {
         if (i === 0)
           arrayOfPhotos.push(
