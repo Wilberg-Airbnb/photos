@@ -2,12 +2,13 @@ import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import Photogrid from './components/PhotogridComponents/Photogrid.jsx';
-// import TopBar from './components/TopBar/TopBar.jsx';
+import TopBar from './components/TopBar/TopBar.jsx';
 const CenteringContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+  flex-direction: column;
 `;
 
 class Index extends React.Component {
@@ -43,7 +44,7 @@ class Index extends React.Component {
         this.setState({
           photos: photos[0].photos,
           listingInfo: {
-            city: location.address.country,
+            city: location.address.city,
             country: location.address.country,
             reviews: reviews[0].average,
             placeName: description.nameOfListing,
@@ -57,6 +58,7 @@ class Index extends React.Component {
   render() {
     return (
       <CenteringContainer>
+        <TopBar listingInfo={this.state.listingInfo}></TopBar>
         <Photogrid photos={this.state.photos}></Photogrid>
       </CenteringContainer>
     );

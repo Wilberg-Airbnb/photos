@@ -8,7 +8,6 @@ const ContainerDiv = styled.div`
 `;
 
 const GridContainer = styled.div`
-  margin-top: 40px;
   display: flex;
   height: 475px;
   width: 975px;
