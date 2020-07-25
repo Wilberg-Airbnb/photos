@@ -8,22 +8,22 @@ const ContainerDiv = styled.div`
 `;
 
 const GridContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 8px;
-  grid-row-gap: 8px;
-  width: 900px;
-  height: 1200px;
+  margin-top: 40px;
+  display: flex;
+  height: 475px;
+  width: 975px;
+  flex-wrap: wrap;
+  flex-direction: column;
 `;
 
 const Big = styled.div`
+  height: 455px;
+  width: 475px;
   background-color: pink;
   background-image: url(${(props) =>
     props.photo ||
     'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
   border: 1px solid rgba(0, 0, 0, 0.8);
-  grid-area: 1 / 1 / 3 / 3;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   &:hover {
@@ -34,7 +34,8 @@ const Big = styled.div`
 `;
 
 const Photo1 = styled.div`
-  grid-area: 1 / 3 / 2 / 4;
+  height: 220px;
+  width: 235px;
   background-color: pink;
   background-image: url(${(props) =>
     props.photo ||
@@ -48,7 +49,9 @@ const Photo1 = styled.div`
 `;
 
 const Photo2 = styled.div`
-  grid-area: 2 / 3 / 3 / 4;
+  height: 220px;
+  width: 235px;
+  margin-top: 10px;
   background-color: pink;
   background-image: url(${(props) =>
     props.photo ||
@@ -62,7 +65,8 @@ const Photo2 = styled.div`
 `;
 
 const Photo3 = styled.div`
-  grid-area: 1 / 4 / 2 / 5;
+  height: 220px;
+  width: 235px;
   background-color: pink;
   background-image: url(${(props) =>
     props.photo ||
@@ -77,7 +81,9 @@ const Photo3 = styled.div`
 `;
 
 const Photo4 = styled.div`
-  grid-area: 2 / 4 / 3 / 5;
+  height: 220px;
+  width: 235px;
+  margin-top: 10px;
   background-color: pink;
   background-image: url(${(props) =>
     props.photo ||
