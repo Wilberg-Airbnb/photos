@@ -1,6 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 import Photogrid from './components/PhotogridComponents/Photogrid.jsx';
+import styled from 'styled-components';
+
+const CenteringContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+`;
+
 class Index extends React.Component {
   constructor(props) {
     super(props);
@@ -21,9 +30,9 @@ class Index extends React.Component {
 
   render() {
     return (
-      <div>
+      <CenteringContainer>
         <Photogrid photos={this.state.photos}></Photogrid>
-      </div>
+      </CenteringContainer>
     );
   }
 }
