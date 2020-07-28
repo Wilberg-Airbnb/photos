@@ -129,7 +129,7 @@ class PhotoModal extends React.Component {
             </Button>
           </div>
         </ButtonContainer>
-        <Photo photo={this.props.photos[photoClicked].photoUrl}></Photo>
+        <Photo photo={this.props.photos[photoClicked]}></Photo>
       </WholePage>
     );
   }

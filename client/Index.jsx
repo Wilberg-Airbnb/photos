@@ -40,7 +40,7 @@ class Index extends React.Component {
       .then(([photos, description, location, reviews]) => {
         // set state in here
         this.setState({
-          photos: photos[0].photos,
+          photos: photos,
           listingInfo: {
             city: location.address.city,
             country: location.address.country,
