@@ -17,18 +17,20 @@ module.exports = {
   },
   plugins: [
     new BrotliGzipPlugin({
-      asset: 'bundle.br',
+      asset: '[file].br[query]',
       algorithm: 'brotli',
       test: /\.(js|css|html|svg)$/,
       threshold: 10240,
       minRatio: 0.8,
+      quality: 11,
     }),
     new BrotliGzipPlugin({
-      asset: 'bundle.gz',
+      asset: '[file].gz[query]',
       algorithm: 'gzip',
       test: /\.(js|css|html|svg)$/,
       threshold: 10240,
       minRatio: 0.8,
+      quality: 11,
     }),
   ],
   output: {

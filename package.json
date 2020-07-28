@@ -10,6 +10,7 @@
   "scripts": {
     "server": "nodemon ./server/server.js --ignore node_modules",
     "react-dev": "webpack -d --watch",
+    "react-prod": "webpack -p --watch",
     "seed": "node database/seed.js",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -20,6 +21,7 @@
     "@types/react": "^16.9.43",
     "axios": "^0.19.2",
     "babel-loader": "^8.1.0",
+    "body-parser": "^1.19.0",
     "brotli-gzip-webpack-plugin": "^0.5.0",
     "bufferutil": "^4.0.1",
     "canvas": "^2.6.1",

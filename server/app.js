@@ -1,4 +1,6 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const { join } = require('path');
 const db = require('../database/connection');
 const cors = require('cors');
 const Photos = require('../database/Photos');
@@ -6,7 +8,27 @@ const fetch = require('node-fetch');
 
 const app = express();
 app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 // Server the same static for EACH lisitngId
+
+//
+app.get('/public/bundle.js', (req, res, next) => {
+  if (req.header('Accept-Encoding').includes('br')) {
+    console.log('Brotli called');
+    res.set('Content-Encoding', 'br');
+    res.set('Content-type', 'application/javascript');
+    res.sendFile(join(__dirname, '../', 'public', 'bundle.js.br'));
+  } else if (req.header('Accept-Encoding').includes('gzip')) {
+    console.log('Gzip called');
+    res.set('Content-Encoding', 'gz');
+    res.set('Content-type', 'application/javascript');
+    res.sendFile(join(__dirname, '../', 'public', 'bundle.js.gz'));
+  } else {
+    console.log('Uncomp');
+    res.sendFile(join(_dirname, '../', 'public', 'bundle.js'));
+  }
+});
 app.use('/:listingId', express.static('public'));
 
 app.get('/api/photos/thumbnail/:listingId', (req, res) => {
