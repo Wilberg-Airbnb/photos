@@ -1,8 +1,8 @@
 import React from 'react';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import SaveAltIcon from '@material-ui/icons/SaveAlt';
 import styled from 'styled-components';
-// class TopBar extends React.Class {}
+
+const AWS_URL = `https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/`;
+
 const ContainerDiv = styled.div`
   display: flex;
   flex-basis: column;
@@ -88,8 +88,14 @@ const TopBar = ({ listingInfo }) => {
             <Underline>{location}</Underline>
           </OverView>
           <Like>
-            Like <FavoriteBorderIcon style={{ fontSize: '12px' }} /> Save
-            {'  '} <SaveAltIcon style={{ fontSize: '12px' }} />
+            Like{' '}
+            <img src={`${AWS_URL}like.png`} style={{ maxHeight: '12px' }}></img>{' '}
+            Save
+            {'  '}
+            <img
+              src={`${AWS_URL}export.png`}
+              style={{ maxHeight: '12px' }}
+            ></img>{' '}
           </Like>
         </SpacerDiv>
       </ContainerDiv>
