@@ -100,8 +100,8 @@ class Photogrid extends React.Component {
         if (i === 0)
           arrayOfPhotos.push(
             <Big
-              key={photo._id}
-              photo={photo.photoUrl}
+              key={i}
+              photo={photo}
               onClick={() => {
                 console.log('Clicked', i);
                 this.setState({
@@ -114,7 +114,7 @@ class Photogrid extends React.Component {
         if (i === 1)
           arrayOfPhotos.push(
             <Photo1
-              key={photo._id}
+              key={i}
               onClick={() => {
                 console.log('Clicked', i);
                 this.setState({
@@ -122,13 +122,13 @@ class Photogrid extends React.Component {
                   photoClicked: 1,
                 });
               }}
-              photo={photo.photoUrl}
+              photo={photo}
             ></Photo1>
           );
         if (i === 2)
           arrayOfPhotos.push(
             <Photo2
-              key={photo._id}
+              key={i}
               onClick={() => {
                 console.log('Clicked', i);
                 this.setState({
@@ -136,13 +136,13 @@ class Photogrid extends React.Component {
                   photoClicked: 2,
                 });
               }}
-              photo={photo.photoUrl}
+              photo={photo}
             ></Photo2>
           );
         if (i === 3)
           arrayOfPhotos.push(
             <Photo3
-              key={photo._id}
+              key={i}
               onClick={() => {
                 console.log('Clicked', i);
                 this.setState({
@@ -150,14 +150,14 @@ class Photogrid extends React.Component {
                   photoClicked: 3,
                 });
               }}
-              photo={photo.photoUrl}
+              photo={photo}
             ></Photo3>
           );
         if (i === 4)
           arrayOfPhotos.push(
             <Photo4
-              key={photo._id}
-              photo={photo.photoUrl}
+              key={i}
+              photo={photo}
               onClick={() => {
                 console.log('Clicked', i);
                 this.setState({
