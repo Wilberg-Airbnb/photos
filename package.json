@@ -16,8 +16,6 @@
     "docker": "concurrently \"node database/seed.js\" \"nodemon ./server/server.js --ignore node_modules\""
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1",
     "@shelf/jest-mongodb": "^1.1.5",
     "@types/react": "^16.9.43",
     "axios": "^0.19.2",
