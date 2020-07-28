@@ -2,12 +2,12 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import SaveAltIcon from '@material-ui/icons/SaveAlt';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 const AWS_URL = `https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/`;
+
+const Icon = styled.img`
+  max-height: 12px;
+`;
 
 let WholePage = styled.div`
   position: fixed;
@@ -103,8 +103,10 @@ class PhotoModal extends React.Component {
             {photoClicked + 1}/{photoLength}
           </Count>
           <PhotoRecord>
-            <SaveAltIcon style={{ fontSize: 13 }}></SaveAltIcon>
-            <FavoriteBorderIcon style={{ fontSize: 13 }}></FavoriteBorderIcon>
+            {/* Use s3 bucket instead of material UI icons */}
+            <Icon src={`${AWS_URL}like.png`}></Icon>
+            {'  '}
+            <Icon src={`${AWS_URL}export.png`}></Icon>
           </PhotoRecord>
         </UpperContainer>
         <ButtonContainer>

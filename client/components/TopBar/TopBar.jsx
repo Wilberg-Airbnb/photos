@@ -92,6 +92,7 @@ const TopBar = ({ listingInfo }) => {
             <Underline>{location}</Underline>
           </OverView>
           <Like>
+            {/* Substitute material ui for s3 icons */}
             Like <Icon src={`${AWS_URL}like.png`}></Icon> Save
             {'  '}
             <Icon src={`${AWS_URL}export.png`}></Icon>{' '}
