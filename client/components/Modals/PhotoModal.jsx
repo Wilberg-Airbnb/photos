@@ -6,10 +6,10 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import SaveAltIcon from '@material-ui/icons/SaveAlt';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+
+const AWS_URL = `https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/`;
+
 let WholePage = styled.div`
-  /* position: absolute;
-  height: 100%;
-  background-color: black; */
   position: fixed;
   padding: 0;
   margin: 0;

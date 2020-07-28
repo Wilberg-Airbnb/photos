@@ -3,6 +3,10 @@ import styled from 'styled-components';
 
 const AWS_URL = `https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/`;
 
+const Icon = styled.img`
+  max-height: 12px;
+`;
+
 const ContainerDiv = styled.div`
   display: flex;
   flex-basis: column;
@@ -88,14 +92,9 @@ const TopBar = ({ listingInfo }) => {
             <Underline>{location}</Underline>
           </OverView>
           <Like>
-            Like{' '}
-            <img src={`${AWS_URL}like.png`} style={{ maxHeight: '12px' }}></img>{' '}
-            Save
+            Like <Icon src={`${AWS_URL}like.png`}></Icon> Save
             {'  '}
-            <img
-              src={`${AWS_URL}export.png`}
-              style={{ maxHeight: '12px' }}
-            ></img>{' '}
+            <Icon src={`${AWS_URL}export.png`}></Icon>{' '}
           </Like>
         </SpacerDiv>
       </ContainerDiv>
