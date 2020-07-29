@@ -39,7 +39,7 @@ class Index extends React.Component {
       })
       .then(([photos, description, location, reviews]) => {
         // set state in here
-        console.log(photos);
+        console.log('Here are the phtoso', photos);
         this.setState({
           photos: photos,
           listingInfo: {
