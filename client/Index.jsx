@@ -22,41 +22,66 @@ class Index extends React.Component {
   }
 
   componentDidMount() {
-    // Get all information from all services for top bar and photos
-    Promise.all([
-      fetch(`http://52.14.166.9:3001/api/photos/${this.state.listingId}`),
-      fetch(`http://52.14.166.9:4000/api/description/${this.state.listingId}`),
-      fetch(`http://3.12.169.208:2001/api/location/${this.state.listingId}`),
-      fetch(`http://52.14.214.44:8080/api/reviews/${this.state.listingId}`),
-    ])
-      .then(([photos, description, location, reviews]) => {
-        return Promise.all([
-          photos.json(),
-          description.json(),
-          location.json(),
-          reviews.json(),
-        ]);
+    fetch(`http://52.14.166.9:3001/api/photos/${this.state.listingId}`)
+      .then((photos) => {
+        return photos.json();
       })
-      .then(([photos, description, location, reviews]) => {
-        // set state in here
+      .then((photos) => {
         this.setState({
-          photos: photos,
-          listingInfo: {
-            city: location.address.city,
-            country: location.address.country,
-            reviews: reviews[0].average,
-            placeName: description.nameOfListing,
-            reviews: reviews.length,
-            score: reviews[0].average,
-          },
+          photos: photos.photos,
+        });
+      })
+      .catch((error) => {
+        // Error handling for when databases is down
+        console.log('Error getting photos', error);
+        let errorArray = new Array(5).fill(
+          'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+        );
+        this.setState({
+          photos: errorArray,
         });
       });
+
+    //   fetch(`http://52.14.166.9:3001/api/photos/${this.state.listingId}`)
+    //   .then((description) => {
+    //     description.json()
+    //   }).
+    //   (descriptions)
+    // // Get all information from all services for top bar and photos
+    // Promise.all([
+    //   fetch(`http://52.14.166.9:3001/api/photos/${this.state.listingId}`),
+    //   fetch(`http://52.14.166.9:4000/api/description/${this.state.listingId}`),
+    //   fetch(`http://3.12.169.208:2001/api/location/${this.state.listingId}`),
+    //   fetch(`http://52.14.214.44:8080/api/reviews/${this.state.listingId}`),
+    // ])
+    //   .then(([photos, description, location, reviews]) => {
+    //     return Promise.all([
+    //       photos.json(),
+    //       description.json(),
+    //       location.json(),
+    //       reviews.json(),
+    //     ]);
+    //   })
+    //   .then(([photos, description, location, reviews]) => {
+    //     // set state in here
+    //     this.setState({
+    //       photos: photos.photos,
+    //       listingInfo: {
+    //         city: location.address.city,
+    //         country: location.address.country,
+    //         reviews: reviews[0].average,
+    //         placeName: description.nameOfListing,
+    //         reviews: reviews.length,
+    //         score: reviews[0].average,
+    //       },
+    //     });
+    //   });
   }
 
   render() {
     return (
       <CenteringContainer>
-        <TopBar listingInfo={this.state.listingInfo}></TopBar>
+        <TopBar listingId={this.state.listingId}></TopBar>
         <Photogrid photos={this.state.photos}></Photogrid>
       </CenteringContainer>
     );
