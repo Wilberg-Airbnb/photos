@@ -73,34 +73,101 @@ const Star = styled.div`
   margin-right: 4px;
 `;
 
-const TopBar = ({ listingInfo }) => {
-  let location, placeName, averageRating, numberOfReviews;
-  if (listingInfo) {
-    location = `${listingInfo.city}, ${listingInfo.country}`;
-    placeName = listingInfo.placeName;
-    averageRating = listingInfo.score;
-    numberOfReviews = listingInfo.reviews;
-    averageRating = listingInfo.score;
+class TopBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      city: null,
+      country: null,
+      placeName: null,
+      reviews: null,
+      score: null,
+    };
   }
-  return (
-    <div>
-      <Place>{placeName}</Place>
-      <ContainerDiv>
-        <SpacerDiv>
-          <OverView>
-            <Star /> <Bold>{averageRating} </Bold>({numberOfReviews})
-            <Underline>{location}</Underline>
-          </OverView>
-          <Like>
-            {/* Substitute material ui for s3 icons */}
-            Like <Icon src={`${AWS_URL}like.png`}></Icon> Save
-            {'  '}
-            <Icon src={`${AWS_URL}export.png`}></Icon>{' '}
-          </Like>
-        </SpacerDiv>
-      </ContainerDiv>
-    </div>
-  );
-};
+  componentDidMount() {
+    fetch(`http://52.14.166.9:4000/api/description/${this.props.listingId}`)
+      .then((description) => {
+        console.log(description.json());
+        // return description.json();
+      })
+      .then((description) => {
+        this.setState({
+          placeName: description.nameOfListing,
+        });
+      })
+      .catch((error) => {
+        console.log('Error in description', error);
+        this.setState({
+          placeName: 'An Airbnb Listing',
+        });
+      });
+
+    fetch(`http://3.12.169.208:2001/api/location/${this.props.listingId}`)
+      .then((location) => {
+        return location.json();
+      })
+      .then((location) => {
+        this.setState({
+          city: location.address.city,
+          country: location.addres.city,
+        });
+      })
+      .catch((error) => {
+        console.log('Error in location');
+        this.setState({
+          city: 'Los Angeles',
+          country: 'USA',
+        });
+      });
+
+    fetch(`http://52.14.214.44:8080/api/reviews/${this.props.listingId}`)
+      .then((reviews) => {
+        return reviews.json();
+      })
+      .then((reviews) => {
+        this.setState({
+          reviews: reviews.length,
+          score: reviews[0].average,
+        });
+      })
+      .catch((error) => {
+        console.log('Error in Reviews');
+        this.setState({
+          reviews: '100',
+          score: '4.5',
+        });
+      });
+  }
+  render() {
+    let location, placeName, averageRating, numberOfReviews;
+    if (Object.values(this.state).indexOf(null) === -1) {
+      location = `${this.state.city}, ${this.state.country}`;
+      placeName = this.state.placeName;
+      averageRating = this.state.score;
+      numberOfReviews = this.state.reviews;
+      averageRating = this.state.score;
+    }
+
+    return (
+      <div>
+        <Place>{placeName}</Place>
+        <ContainerDiv>
+          <SpacerDiv>
+            <OverView>
+              <Star /> <Bold>{averageRating} </Bold>({numberOfReviews})
+              <Underline>{location}</Underline>
+            </OverView>
+            <Like>
+              {/* Substitute material ui for s3 icons */}
+              Like <Icon src={`${AWS_URL}like.png`}></Icon> Save
+              {'  '}
+              <Icon src={`${AWS_URL}export.png`}></Icon>{' '}
+            </Like>
+          </SpacerDiv>
+        </ContainerDiv>
+      </div>
+    );
+  }
+}
 
 export default TopBar;
