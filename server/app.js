@@ -69,7 +69,7 @@ app.get('/api/photos/:listingId', (req, res) => {
     })
     .then((urls) => {
       console.log('Here are the urls', urls);
-      res.json(urls);
+      res.json({ photos: urls });
     })
     .catch((error) => {
       console.log('Error finding', error);
