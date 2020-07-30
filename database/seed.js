@@ -18,7 +18,7 @@ function grabPhotos(page) {
     .get(`https://picsum.photos/v2/list?page=${page}&limit=100`)
     .then(({ data }) => {
       let urls = data.map((photo) => {
-        return `${photo.download_url}`;
+        return `${helpers.convertPhotoInHalf(photo.download_url)}`;
       });
       photosToChooseFrom.push(...urls);
     });
@@ -70,7 +70,7 @@ grabPhotos(1)
 
     fs.writeFile(
       'database/dummyData.js',
-      `let dummyData = ${JSON.stringify(mongoData)} \n
+      `let dummyData = ${JSON.stringify(mongoData.slice(0, 3))} \n
       module.exports = dummyData`,
       (err) => {
         if (err) console.log('Error writing', err);

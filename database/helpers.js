@@ -4,6 +4,14 @@ function convertToThumbNail(url) {
   return splitUrl;
 }
 
+function convertPhotoInHalf(url) {
+  let baseUrl = url.split('/').slice(0, 5);
+  let splitUrl = url.split('/');
+  let height = parseInt(splitUrl[5] / 2);
+  let width = parseInt(splitUrl[6] / 2);
+  return baseUrl.concat([height, width]).join('/');
+}
+
 function insertRandomAmountOfPhotos(dataSet) {
   let numBtwn5and15 = getRandomInt(5, 15);
   let photoGallery = [];
@@ -23,4 +31,5 @@ function insertRandomAmountOfPhotos(dataSet) {
 module.exports = {
   convertToThumbNail,
   insertRandomAmountOfPhotos,
+  convertPhotoInHalf,
 };
