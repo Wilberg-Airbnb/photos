@@ -4,38 +4,51 @@ import styled from 'styled-components';
 const AWS_URL = `https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/`;
 
 const Icon = styled.img`
-  max-height: 12px;
+  #photos & {
+    max-height: 12px;
+  }
 `;
 
 const ContainerDiv = styled.div`
-  display: flex;
-  flex-basis: column;
-  width: 975px;
-  margin-bottom: 10px;
+  #photos & {
+    display: flex;
+    flex-basis: column;
+    width: 975px;
+    margin-bottom: 10px;
+  }
 `;
 const Place = styled.div`
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
+  #photos & {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
 `;
 
 const SpacerDiv = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
+  #photos & {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
 `;
 
 const OverView = styled.div`
-  font-size: 14px;
-  margin-right: 15px;
-}
+  #photos & {
+    font-size: 14px;
+    margin-right: 15px;
+  }
 `;
 const Underline = styled.span`
-  text-decoration: underline;
+  #photos & {
+    text-decoration: underline;
+  }
 `;
 
 const Bold = styled.span`
-  font-weight: bold;
+  #photos & {
+    font-weight: bold;
+  }
 `;
 
 const Like = styled(OverView)`
