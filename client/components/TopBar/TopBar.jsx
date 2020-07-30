@@ -100,7 +100,7 @@ class TopBar extends React.Component {
   componentDidMount() {
     fetch(`http://52.14.166.9:4000/api/description/${this.props.listingId}`)
       .then((description) => {
-        console.log(description.json());
+        return description.json();
         // return description.json();
       })
       .then((description) => {
