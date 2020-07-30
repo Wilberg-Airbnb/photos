@@ -45,8 +45,9 @@ let Photo = styled.div`
   }
 `;
 const Button = styled.button`
-#photomodal & [
-]`;
+  #photo-modal & {
+  }
+`;
 
 const CloseButton = styled.button`
   #photo-modal & {
@@ -67,8 +68,9 @@ const Count = styled.span`
 `;
 
 const PhotoRecord = styled.div`
-#photomodal & [
-]`;
+  #photo-modal & {
+  }
+`;
 
 const UpperContainer = styled.div`
   #photo-modal & {

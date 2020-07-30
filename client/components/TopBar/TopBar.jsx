@@ -55,35 +55,37 @@ const Like = styled(OverView)`
   text-decoration: underline;
 `;
 const Star = styled.div`
-  background: #ff385c;
-  -webkit-clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    98% 35%,
-    68% 57%,
-    79% 91%,
-    50% 70%,
-    21% 91%,
-    32% 57%,
-    2% 35%,
-    39% 35%
-  );
-  clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    98% 35%,
-    68% 57%,
-    79% 91%,
-    50% 70%,
-    21% 91%,
-    32% 57%,
-    2% 35%,
-    39% 35%
-  );
-  display: inline-block;
-  height: 15px;
-  width: 15px;
-  margin-right: 4px;
+  #photos & {
+    background: #ff385c;
+    -webkit-clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    margin-right: 4px;
+  }
 `;
 
 class TopBar extends React.Component {
