@@ -52,7 +52,9 @@ const Bold = styled.span`
 `;
 
 const Like = styled(OverView)`
-  text-decoration: underline;
+  #photos & {
+    text-decoration: underline;
+  }
 `;
 const Star = styled.div`
   #photos & {

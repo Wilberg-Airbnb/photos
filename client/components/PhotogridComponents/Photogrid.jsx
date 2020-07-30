@@ -48,15 +48,21 @@ const Photo1 = styled(Big)`
 `;
 
 const Photo2 = styled(Photo1)`
-  margin-top: 10px;
+  #photos & {
+    margin-top: 10px;
+  }
 `;
 
 const Photo3 = styled(Photo1)`
-  border-top-right-radius: 15px;
+  #photos & {
+    border-top-right-radius: 15px;
+  }
 `;
 
 const Photo4 = styled(Photo2)`
-  border-bottom-right-radius: 15px;
+  #photos & {
+    border-bottom-right-radius: 15px;
+  }
 `;
 
 const ShowAllButton = styled.button`
