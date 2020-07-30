@@ -179,7 +179,6 @@ class Photogrid extends React.Component {
               <ShowAllButton
                 onClick={() => {
                   // Have to display from zero on button click
-                  console.log('Clicked', i);
                   this.setState({
                     photoClicked: 0,
                   });
