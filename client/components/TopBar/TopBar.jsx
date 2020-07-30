@@ -122,7 +122,7 @@ class TopBar extends React.Component {
       .then((location) => {
         this.setState({
           city: location.address.city,
-          country: location.addres.city,
+          country: location.address.country,
         });
       })
       .catch((error) => {
