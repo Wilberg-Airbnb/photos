@@ -4,39 +4,47 @@ import Modal from '../Modals/Modal.jsx';
 import PhotoModal from '../Modals/PhotoModal.jsx';
 
 const ContainerDiv = styled.div`
-  left: 50%;
+  #photos & {
+    left: 50%;
+  }
 `;
 
 const GridContainer = styled.div`
-  display: flex;
-  height: 475px;
-  width: 975px;
-  flex-wrap: wrap;
-  flex-direction: column;
+  #photos & {
+    display: flex;
+    height: 475px;
+    width: 975px;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
 `;
 
 const Big = styled.div`
-  height: 455px;
-  width: 475px;
-  background-color: rgba(250, 178, 210, 0.55);
-  background-image: url(${(props) =>
-    props.photo ||
-    'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-  &:hover {
-    -webkit-filter: grayscale(50%);
-    filter: brightness(80%);
-    opacity: 0.8;
+  #photos & {
+    height: 455px;
+    width: 475px;
+    background-color: rgba(250, 178, 210, 0.55);
+    background-image: url(${(props) =>
+      props.photo ||
+      'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    &:hover {
+      -webkit-filter: grayscale(50%);
+      filter: brightness(80%);
+      opacity: 0.8;
+    }
   }
 `;
 
 const Photo1 = styled(Big)`
-  height: 220px;
-  width: 235px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
+  #photos & {
+    height: 220px;
+    width: 235px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
 `;
 
 const Photo2 = styled(Photo1)`
@@ -52,14 +60,16 @@ const Photo4 = styled(Photo2)`
 `;
 
 const ShowAllButton = styled.button`
-  text-align: center;
-  margin-top: 80%;
-  border-radius: 5px;
-  margin-left: 40%;
-  padding: 6px 8px 6px 8px;
-  background-color: rgb(255, 255, 255);
-  font-size: 10px;
-  border-color: rgb(34, 34, 34);
+  #photos & {
+    text-align: center;
+    margin-top: 80%;
+    border-radius: 5px;
+    margin-left: 40%;
+    padding: 6px 8px 6px 8px;
+    background-color: rgb(255, 255, 255);
+    font-size: 10px;
+    border-color: rgb(34, 34, 34);
+  }
 `;
 
 class Photogrid extends React.Component {
