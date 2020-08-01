@@ -27,7 +27,7 @@ const Big = styled.div`
     background-image: url(${(props) =>
       props.photo ||
       'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'});
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    border: 1px solid white;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     &:hover {
