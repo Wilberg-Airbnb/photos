@@ -185,9 +185,13 @@ class Photogrid extends React.Component {
               }}
             >
               <ShowAllButton
-                onClick={() => {
-                  // Have to display from zero on button click
+                onClick={(event) => {
+                  // Use stopPropagation to prevent bubbling of click event to parent element
+                  // Do this so that show all button renders photo one NOT photo 4 (the photo that would
+                  // be rendered in the containing parent element)
+                  event.stopPropagation();
                   this.setState({
+                    togglePhotosModal: !this.state.togglePhotosModal,
                     photoClicked: 0,
                   });
                 }}

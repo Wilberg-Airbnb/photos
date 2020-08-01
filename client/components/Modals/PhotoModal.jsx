@@ -67,10 +67,10 @@ const CloseButton = styled.button`
     text-align: center;
     border-radius: 5px;
     padding: 6px 8px 6px 8px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(34, 34, 34, 0.1);
     font-size: 10px;
-    border-color: rgb(34, 34, 34);
     margin-left: 10px;
+    border: solid 1px white;
   }
 `;
 
