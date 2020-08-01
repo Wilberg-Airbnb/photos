@@ -21,7 +21,7 @@ const GridContainer = styled.div`
 
 const Big = styled.div`
   #photos & {
-    height: 455px;
+    height: 457px;
     width: 475px;
     background-color: rgba(250, 178, 210, 0.55);
     background-image: url(${(props) =>
@@ -50,6 +50,7 @@ const Photo1 = styled(Big)`
 const Photo2 = styled(Photo1)`
   #photos & {
     margin-top: 10px;
+    height: 225px;
   }
 `;
 
@@ -62,6 +63,7 @@ const Photo3 = styled(Photo1)`
 const Photo4 = styled(Photo2)`
   #photos & {
     border-bottom-right-radius: 15px;
+    height: 225px;
   }
 `;
 
@@ -183,9 +185,13 @@ class Photogrid extends React.Component {
               }}
             >
               <ShowAllButton
-                onClick={() => {
-                  // Have to display from zero on button click
+                onClick={(event) => {
+                  // Use stopPropagation to prevent bubbling of click event to parent element
+                  // Do this so that show all button renders photo one NOT photo 4 (the photo that would
+                  // be rendered in the containing parent element)
+                  event.stopPropagation();
                   this.setState({
+                    togglePhotosModal: !this.state.togglePhotosModal,
                     photoClicked: 0,
                   });
                 }}

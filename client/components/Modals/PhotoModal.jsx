@@ -21,6 +21,19 @@ let WholePage = styled.div`
     width: 100%;
     height: 100%;
     background: white;
+    z-index: 999;
+  }
+`;
+
+let Arrow = styled.div`
+  #photo-modal & {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border: solid 1px #bbb;
+    border-radius: 50%;
   }
 `;
 
@@ -54,10 +67,10 @@ const CloseButton = styled.button`
     text-align: center;
     border-radius: 5px;
     padding: 6px 8px 6px 8px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(34, 34, 34, 0.1);
     font-size: 10px;
-    border-color: rgb(34, 34, 34);
     margin-left: 10px;
+    border: solid 1px white;
   }
 `;
 
@@ -86,9 +99,10 @@ const ButtonContainer = styled.div`
     position: absolute;
     display: flex;
     justify-content: space-between;
-    width: 95%;
+    width: 90%;
     height: 100%;
     align-items: center;
+    margin-left: 5%;
   }
 `;
 
@@ -128,24 +142,28 @@ class PhotoModal extends React.Component {
           </PhotoRecord>
         </UpperContainer>
         <ButtonContainer>
-          <div>
-            <Button
+          {photoClicked >= 1 ? (
+            <Arrow
               onClick={() => {
                 if (photoClicked > 0) changePhoto('left');
               }}
             >
-              Left
-            </Button>
-          </div>
-          <div>
-            <Button
+              {'<'}
+            </Arrow>
+          ) : (
+            <span></span>
+          )}
+          {photoClicked === photoLength - 1 ? (
+            <span></span>
+          ) : (
+            <Arrow
               onClick={() => {
                 if (photoClicked < photoLength - 1) changePhoto('right');
               }}
             >
-              Right
-            </Button>
-          </div>
+              {'>'}
+            </Arrow>
+          )}
         </ButtonContainer>
         <Photo photo={this.props.photos[photoClicked]}></Photo>
       </WholePage>
