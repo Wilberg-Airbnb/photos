@@ -21,7 +21,7 @@ const GridContainer = styled.div`
 
 const Big = styled.div`
   #photos & {
-    height: 455px;
+    height: 457px;
     width: 475px;
     background-color: rgba(250, 178, 210, 0.55);
     background-image: url(${(props) =>
