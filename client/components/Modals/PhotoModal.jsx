@@ -25,6 +25,18 @@ let WholePage = styled.div`
   }
 `;
 
+let Arrow = styled.div`
+  #photo-modal & {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border: solid 1px #bbb;
+    border-radius: 50%;
+  }
+`;
+
 let Photo = styled.div`
   #photo-modal & {
     background-repeat: no-repeat;
@@ -87,9 +99,10 @@ const ButtonContainer = styled.div`
     position: absolute;
     display: flex;
     justify-content: space-between;
-    width: 95%;
+    width: 90%;
     height: 100%;
     align-items: center;
+    margin-left: 5%;
   }
 `;
 
@@ -129,24 +142,21 @@ class PhotoModal extends React.Component {
           </PhotoRecord>
         </UpperContainer>
         <ButtonContainer>
-          <div>
-            <Button
-              onClick={() => {
-                if (photoClicked > 0) changePhoto('left');
-              }}
-            >
-              Left
-            </Button>
-          </div>
-          <div>
-            <Button
-              onClick={() => {
-                if (photoClicked < photoLength - 1) changePhoto('right');
-              }}
-            >
-              Right
-            </Button>
-          </div>
+          <Arrow
+            onClick={() => {
+              if (photoClicked > 0) changePhoto('left');
+            }}
+          >
+            {'<'}
+          </Arrow>
+
+          <Arrow
+            onClick={() => {
+              if (photoClicked < photoLength - 1) changePhoto('right');
+            }}
+          >
+            {'>'}
+          </Arrow>
         </ButtonContainer>
         <Photo photo={this.props.photos[photoClicked]}></Photo>
       </WholePage>
