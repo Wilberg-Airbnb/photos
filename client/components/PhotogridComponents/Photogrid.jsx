@@ -50,6 +50,7 @@ const Photo1 = styled(Big)`
 const Photo2 = styled(Photo1)`
   #photos & {
     margin-top: 10px;
+    height: 225px;
   }
 `;
 
@@ -62,6 +63,7 @@ const Photo3 = styled(Photo1)`
 const Photo4 = styled(Photo2)`
   #photos & {
     border-bottom-right-radius: 15px;
+    height: 225px;
   }
 `;
 
