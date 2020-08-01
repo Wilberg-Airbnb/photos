@@ -142,21 +142,28 @@ class PhotoModal extends React.Component {
           </PhotoRecord>
         </UpperContainer>
         <ButtonContainer>
-          <Arrow
-            onClick={() => {
-              if (photoClicked > 0) changePhoto('left');
-            }}
-          >
-            {'<'}
-          </Arrow>
-
-          <Arrow
-            onClick={() => {
-              if (photoClicked < photoLength - 1) changePhoto('right');
-            }}
-          >
-            {'>'}
-          </Arrow>
+          {photoClicked >= 1 ? (
+            <Arrow
+              onClick={() => {
+                if (photoClicked > 0) changePhoto('left');
+              }}
+            >
+              {'<'}
+            </Arrow>
+          ) : (
+            <span></span>
+          )}
+          {photoClicked === photoLength - 1 ? (
+            <span></span>
+          ) : (
+            <Arrow
+              onClick={() => {
+                if (photoClicked < photoLength - 1) changePhoto('right');
+              }}
+            >
+              {'>'}
+            </Arrow>
+          )}
         </ButtonContainer>
         <Photo photo={this.props.photos[photoClicked]}></Photo>
       </WholePage>
