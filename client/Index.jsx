@@ -25,7 +25,7 @@ class Index extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`http://52.14.166.9:3001/api/photos/${this.state.listingId}`)
+    fetch(`http://localhost:3001/api/photos/${this.state.listingId}`)
       .then((photos) => {
         return photos.json();
       })
